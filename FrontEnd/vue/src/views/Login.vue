@@ -3,7 +3,10 @@
     <div id= "container">
     <div id="login" class="text-center">
       <form class="form-signin" @submit.prevent="login">
+        <div id="PleaseSign">
         <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+        </div>
+        <div id="LoggingIn">
         <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
           Invalid username and password!
         </div>
@@ -14,6 +17,7 @@
         >
           Thank you for registering, please sign in.
         </div>
+        <div id ="UserName">
         <label for="username" class="sr-only">Username</label>
         <input
           type="text"
@@ -24,7 +28,9 @@
           required
           autofocus
         />
-        <label for="password" class="sr-only">Password</label>
+        </div>
+        <div id="Password">
+                  <label for="password" class="sr-only">Password</label>
         <input
           type="password"
           id="password"
@@ -33,8 +39,11 @@
           v-model="user.password"
           required
         />
-        <router-link :to="{ name: 'register' }">Need an account?</router-link>
+        </div>
+
         <button type="submit">Sign in</button>
+        <router-link :to="{ name: 'register' }">Need an account?</router-link>
+        </div>
       </form>
     </div>
     </div>
@@ -79,8 +88,28 @@ export default {
 };
 </script>
 <style scoped>
-body {
+#container {
   background-image: url("../assets/Background.jpg");
-  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  margin-top: -2vh;
+ 
 }
+
+#PleaseSign{
+  /* display: flex; */
+  text-align: center;
+}
+
+#LoggingIn{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-around;
+  /* flex-basis: 100%; */
+}
+/* *{
+  margin: 0;
+  padding: 0;
+} */
 </style>

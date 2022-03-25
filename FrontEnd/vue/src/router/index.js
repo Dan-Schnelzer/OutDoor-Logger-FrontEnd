@@ -5,6 +5,10 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
+import FishingNewLog from '../views/FishingNewLog.vue'
+import HuntingNewLog from '../views/HuntingNewLog.vue'
+import ScoutingNewLog from '../views/ScoutingNewLog.vue'
+import HikingNewLog from '../views/HikingNewLog.vue'
 
 Vue.use(Router)
 
@@ -53,6 +57,40 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path:"/fishing/new/log",
+      name: "fishing-new-log",
+      component: FishingNewLog,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+    path: "/hunting/new/log",
+    name: "hunting-new-log",
+    component: HuntingNewLog,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/scouting/new/log",
+    name: "scouting-report-new-log",
+    component: ScoutingNewLog,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/hiking/new/log",
+    name: "hiking-new-log",
+    component: HikingNewLog,
+    meta: {
+      requiresAuth: true
+    }
+  },
+
+
   ]
 })
 
