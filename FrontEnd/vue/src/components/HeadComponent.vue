@@ -1,7 +1,7 @@
 <template>
     <div class="header-component">
         <div id = "logo"> <p> This is space filler for logo </p>
-            <!-- <router-link v-bind:to="{name: 'home'}"  > may need this later to place -->
+            <router-link id="homeLink" v-bind:to="{name: 'home'}"  > Home </router-link>
                 <!-- img goes here -->
         </div>
 
@@ -45,7 +45,16 @@
   grid-template-areas: "logo links";
   border: none;
   border-bottom: solid 2px #b4b0ad;
-  background-image: linear-gradient(white, #cad6ff);
+  background-image: linear-gradient(white, #02144d);
   color: #464443;
+}
+p{
+  color: white;
+  
+}
+
+#homeLink{
+  color: white;
+  padding: 2vh;
 }
 </style>
