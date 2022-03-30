@@ -1,4 +1,5 @@
 <template>
+<div id="container">
   <div id="register" class="text-center">
     <form class="form-register" @submit.prevent="register">
       <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
@@ -32,12 +33,14 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
+      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      
     </form>
   </div>
+</div>
 </template>
 
 <script>
@@ -90,4 +93,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#container {
+  background-image: url("../assets/Background.jpg");
+  background-repeat: no-repeat;
+  background-size: 100vw;
+  min-height: 100vh;
+  border: solid 1vh  rgb(59, 34, 204);
+  /* margin-top: -2vh; */
+ 
+}
+
+
+</style>

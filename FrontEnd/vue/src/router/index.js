@@ -9,6 +9,11 @@ import FishingNewLog from '../views/FishingNewLog.vue'
 import HuntingNewLog from '../views/HuntingNewLog.vue'
 import ScoutingNewLog from '../views/ScoutingNewLog.vue'
 import HikingNewLog from '../views/HikingNewLog.vue'
+import ViewFishingLogs from '../views/ViewFishingLogs.vue'
+import ViewHuntingLogs from '../views/ViewHuntingLogs.vue'
+import ViewScoutingLogs from '../views/ViewScoutingLogs.vue'
+import ViewHikingLogs from '../views/ViewHikingLogs.vue'
+
 
 Vue.use(Router)
 
@@ -89,7 +94,38 @@ const router = new Router({
       requiresAuth: true
     }
   },
-
+  {
+    path: "/view/Fishing/logs",
+    name: "view-fishing-logs",
+    component: ViewFishingLogs,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/view/Hunting/logs",
+    name: "view-hunting-logs",
+    component: ViewHuntingLogs,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/view/scouting/logs",
+    name: "view-scouting-logs",
+    component: ViewScoutingLogs,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: "/view/hiking/logs",
+    name: "view-hiking-logs",
+    component: ViewHikingLogs,
+    meta: {
+      requiresAuth: true
+    }
+  },
 
   ]
 })

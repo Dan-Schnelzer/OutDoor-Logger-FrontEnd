@@ -2,20 +2,20 @@
   <div class="view">
   
   <nav>
-      <router-link :to="{ name: 'hunting-new-log' }" class="nav-button"     
+      <router-link :to="{ name: 'view-fishing-logs' }" class="nav-button"     
         >View Fishing Logs</router-link>
-                                                     <!-- ***** REMEMBER TO CHANGE THESE ROUTER LINKS!!   ****** -->
-      <router-link :to="{ name: 'home' }" class="nav-button">
+                                                     
+      <router-link :to="{ name: 'view-hunting-logs' }" class="nav-button">
         View Hunting Logs</router-link>
       
-      <router-link :to="{ name: 'my-decks' }" class="nav-button">
+      <router-link :to="{ name: 'view-scouting-logs' }" class="nav-button">
         View Scouting Reports</router-link>
       
-      <router-link :to="{ name: 'public-decks' }" class="nav-button">
+      <router-link :to="{ name: 'view-hiking-logs' }" class="nav-button">
         View Hiking Logs</router-link>
     </nav>
     <article id="form-background">
-        <h1>This is Hiking</h1>
+        <h1>This is to create new Hiking log-form</h1>
         <div >
         </div>
     </article>
@@ -45,13 +45,15 @@ nav {
   /* padding-top: 184.5px; */
   padding-bottom: 20px;
   /* overflow-x: hidden; */
-  background: linear-gradient(rgb(94, 46, 8), rgb(201, 97, 7));
+  /* background: linear-gradient(rgb(94, 46, 8), rgb(201, 97, 7)); */
   /* background-image: url("../assets/lighter-blue-green-background.png"); */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   border: 3px solid rgb(44, 19, 8);
+  background-image: url("../assets/Camo.jpg");
+  background-size: 100%;
 }
 
 .nav-button {
@@ -81,7 +83,7 @@ h1{
 
 #form-background{
     grid-area: body;
-    background: rgb(80, 75, 75);
+    background: linear-gradient(rgb(31, 29, 29), rgb(54, 156, 68),blue, rgb(175, 175, 6));
 }
 
 

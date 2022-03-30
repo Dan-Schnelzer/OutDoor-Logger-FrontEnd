@@ -1,26 +1,27 @@
 <template>
     <div class="header-component">
         <div id = "logo"> <p> This is space filler for logo </p>
-            <router-link id="homeLink" v-bind:to="{name: 'home'}"  > Home </router-link>
+        <p> OutDoor Logger </p>
+            <!-- <router-link  v-bind:to="{name: 'home'}"  > Home </router-link> -->
                 <!-- img goes here -->
         </div>
 
 <div id="links">
-      <div id="home">  <p> OutDoor Logger </p>
-        <!-- <router-link
+      <div id="home">  
+        <router-link id="homeLink"
           v-bind:to="{ name: 'home' }"
           v-if="$store.state.token != ''"
           class="link"
           >Home
-        </router-link> -->
+        </router-link>
       </div>
-      <div id="logout"> <p> Logout </p>
-        <!-- <router-link
+      <div id="logout"> 
+        <router-link id="logout"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token != ''"
           class="link"
           >Logout
-        </router-link> -->
+        </router-link>
       </div>
     </div>
 
@@ -44,9 +45,10 @@
   grid-template-columns: 1fr 5fr;
   grid-template-areas: "logo links";
   border: none;
-  border-bottom: solid 2px #b4b0ad;
-  background-image: linear-gradient(white, #02144d);
+  border-bottom: solid 4px #b4b0ad;
+  background-image: linear-gradient( #02144d,rgb(201, 196, 196),#02144d);
   color: #464443;
+  
 }
 p{
   color: white;
@@ -54,6 +56,12 @@ p{
 }
 
 #homeLink{
+  color: white;
+  padding: 2vh;
+  
+}
+
+#logout{
   color: white;
   padding: 2vh;
 }
