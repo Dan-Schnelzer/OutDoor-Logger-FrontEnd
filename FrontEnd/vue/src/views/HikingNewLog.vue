@@ -54,6 +54,7 @@ nav {
   border: 3px solid rgb(44, 19, 8);
   background-image: url("../assets/Camo.jpg");
   background-size: 100%;
+    box-shadow: 6px 6px 6px rgb(51, 50, 50);
 }
 
 .nav-button {
@@ -72,9 +73,11 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
+   box-shadow: 8px 8px 8px rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
+   box-shadow: 16px 16px 16px rgb(0, 0, 0);
 }
 h1{
     text-align: center;

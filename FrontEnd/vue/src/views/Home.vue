@@ -76,7 +76,7 @@ export default {
   grid-area: fishing;
   border: .5vh solid black;
   background: rgb(9, 9, 80);
-  background-image: url("../assets/Trout2.jpg");
+  background-image: url("../assets/Fishing.jpg");
   background-size: 100%;
   
 }
