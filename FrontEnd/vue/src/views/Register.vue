@@ -105,17 +105,19 @@ export default {
 
 <style scoped>
 #container {
-  background-image: url("../assets/Background.jpg");
+    background-image: url("../assets/Background.jpg");
   background-repeat: no-repeat;
-  background-size: 100vw;
+  /* background-size: 100vw; */
+  background-size: cover;
   min-height: 100vh;
-  border: solid 1vh  rgb(59, 34, 204);
-  /* margin-top: -2vh; */
+  border: solid 1vh  rgb(36, 73, 194);
  
 }
 #CreateH1{
   padding: 7vh;
   padding-left: 14vw;
+   font-family: 'Lobster',  Arial, Helvetica cursive;
+     text-shadow: 4px 4px 4px gray, 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
 }
 
 #username{
@@ -200,6 +202,32 @@ margin-top: 1vh;
 }
 #haveAcct{
   color: white;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 800px) {
+  #container {
+  background-image: url("../assets/BackgroundSmall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  border: solid 1vh  rgb(36, 73, 194);
+  }
+  #username{
+  width: 20vw;
+  }
+  #password{
+    width: 20vw;
+  }
+  #confirmPassword{
+  width: 20vw;
+  }
+  #CreateAcct{
+  width: 20vw;
+  }
+  #HaveAcct{
+  width: 20vw;
+  }
 }
 
 </style>

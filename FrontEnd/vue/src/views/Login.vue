@@ -3,7 +3,7 @@
     <div id= "container">
     <div id="login" class="text-center">
       <form class="form-signin" @submit.prevent="login">
-        <div id="PleaseSign">
+        <div id="Out-Door">
         <h1 class="h3 mb-3 font-weight-normal">Out-Door Logger</h1>
         </div>
         <div id="LoggingIn">
@@ -93,14 +93,14 @@ export default {
 #container {
   background-image: url("../assets/Background.jpg");
   background-repeat: no-repeat;
-  background-size: 100vw;
+  /* background-size: 100vw; */
+  background-size: cover;
   min-height: 100vh;
   border: solid 1vh  rgb(36, 73, 194);
-  /* margin-top: -2vh; */
  
 }
 
-#PleaseSign{
+#Out-Door{
   /* display: flex; */
   text-align: center;
   padding: 7vh;
@@ -108,7 +108,7 @@ export default {
   font-size: 2.5vh;
   color: rgb(0, 0, 0);
   text-shadow: 4px 4px 4px gray, 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
-  font-family: 'Lobster', cursive;
+  font-family: 'Lobster',  Arial, Helvetica cursive;
 }
 
 #LoggingIn{
@@ -183,11 +183,33 @@ box-shadow: 6px 6px 6px rgb(51, 50, 50);
 }
 #NeedAcct{
   color: white;
+  text-decoration: none;
 }
 
- 
-/* *{
-  margin: 0;
-  padding: 0;
-} */
+
+@media only screen and (max-width: 800px) {
+  #container {
+  background-image: url("../assets/BackgroundSmall.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  border: solid 1vh  rgb(36, 73, 194);
+  }
+ #username{
+  width: 20vw;
+ }
+ #password{
+   width: 20vw;
+ }
+#SignIn{
+  width: 20vw;
+}
+
+#needAccount{
+  width: 20vw;
+}
+
+
+}
+
 </style>

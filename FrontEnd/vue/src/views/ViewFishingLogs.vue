@@ -20,6 +20,7 @@
     <article id="form-background">
         <h1>This is viewing your fishing logs</h1>
         <div >
+           <log-list></log-list>
         </div>
     </article>
 
@@ -27,8 +28,12 @@
 </template>
 
 <script>
+import LogList from "../components/LogList.vue";
 export default {
- name: "view-fishing-logs"
+ name: "view-fishing-logs",
+ components: {
+   LogList,
+ }
 };
 </script>
 

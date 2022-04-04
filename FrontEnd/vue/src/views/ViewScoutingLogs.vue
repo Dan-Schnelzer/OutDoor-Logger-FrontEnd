@@ -19,6 +19,7 @@
     <article id="form-background">
         <h1>This is viewing your Scouting Reports</h1>
         <div >
+            <log-list></log-list>
         </div>
     </article>
 
@@ -26,8 +27,12 @@
 </template>
 
 <script>
+import LogList from "../components/LogList.vue";
 export default {
-name: 'view-scouting-logs'
+name: 'view-scouting-logs',
+components: {
+   LogList,
+ }
 };
 </script>
 
