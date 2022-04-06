@@ -20,7 +20,9 @@
     <article id="form-background">
         <h1>This is viewing your fishing logs</h1>
         <div >
-           <log-list></log-list>
+
+           <view-fish-log :fishLog="this.$store.state.fishLog" >
+           </view-fish-log>
         </div>
     </article>
 
@@ -28,12 +30,20 @@
 </template>
 
 <script>
-import LogList from "../components/LogList.vue";
+import ViewFishLog from "../components/ViewFishLog.vue";
 export default {
  name: "view-fishing-logs",
  components: {
-   LogList,
- }
+   ViewFishLog,
+ },
+ data(){
+   return{
+     fishLog: [],
+   };
+ },
+  created() {
+    this.$store.dispatch("LOAD_FISH_LOG", 1);   //THIS IS HARDCODED FOR MOMENT TO SEE IF WE CAN GET IT TO WORK
+  },
 };
 </script>
 

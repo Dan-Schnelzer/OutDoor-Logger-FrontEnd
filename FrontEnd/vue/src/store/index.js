@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
+import FishLogService from '../services/FishLogService.js'
 
 Vue.use(Vuex)
 
@@ -19,7 +20,15 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    fishLogs: [],
+    fishLog: {},
+    huntLogs: [],
+    huntLog: {},
+    scoutLogs: [],
+    scoutLog: {},
+    hikeLogs: [],
+    hikeLog: {},
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -37,6 +46,21 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_FISH_LOGS(state, fishLogs){
+      state.fishLogs = fishLogs;
+    },
+    SET_FISH_LOG(state, fishLog){
+      state.fishLog = fishLog;
+    },
+  },
+  actions: {
+    LOAD_FISH_LOG(context, logId){
+      FishLogService.getFishLogById(logId).then( (Response) =>
+      {
+        const fishLog = Response.data;
+        context.commit('SET_FISH_LOG', fishLog);
+      });
     }
   }
 })
