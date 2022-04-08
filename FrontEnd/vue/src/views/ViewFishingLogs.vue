@@ -19,31 +19,63 @@
     </nav>
     <article id="form-background">
         <h1>This is viewing your fishing logs</h1>
-        <div >
-
-           <view-fish-log :fishLog="this.$store.state.fishLog" >
+        <!-- <div >
+  <view-fish-log  
+           
+              :fishLogs="this.$store.state.fishLogs"> 
            </view-fish-log>
-        </div>
+        </div> -->
+            
+             <!-- <div class="fishLog"> -->
+    <!-- <router-link
+      class="deck-link"
+      :to="{ name: 'deck-details', params: { id: id } }"
+    > -->
+
+       <table id="logTable">
+         <thead>
+  <tr>
+    <th>Log Id</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th></th>
+  </tr>
+         </thead>
+        <tbody>
+      <tr class="FishLogs" v-for="fishLog in $store.state.fishLogs" v-bind:key="fishLog.id" >
+        <td class="fishLogId"> ID : {{ fishLog.fishLogId }}</td>
+        <td class="logDate">{{ fishLog.logDate }} </td>
+         <td class="logLocation">{{  fishLog.logLocation }}</td>
+          <router-link  :to = "{ name: 'view-fish-log', params: {id: fishLog.fishLogId}}"> <button id="viewLogButton"> View  Log </button></router-link> 
+      </tr>
+        </tbody>
+
+    </table>
+
     </article>
 
 </div>
 </template>
 
 <script>
-import ViewFishLog from "../components/ViewFishLog.vue";
+// import ViewFishLog from "../components/ViewFishLog.vue";
 export default {
  name: "view-fishing-logs",
  components: {
-   ViewFishLog,
+  //  ViewFishLog,
  },
  data(){
    return{
      fishLog: [],
+     fishLogs: [],
    };
  },
   created() {
-    this.$store.dispatch("LOAD_FISH_LOG", 1);   //THIS IS HARDCODED FOR MOMENT TO SEE IF WE CAN GET IT TO WORK
+    this.$store.dispatch("LOAD_ALL_FISH_LOGS", this.$store.state.user.id);   //THIS IS HARDCODED FOR MOMENT TO SEE IF WE CAN GET IT TO WORK
   },
+  // created(){
+  //   this.$store.dispatch("LOAD_FISH_LOG", 3);
+  // }
 };
 </script>
 
@@ -104,7 +136,87 @@ h1{
 
 #form-background{
     grid-area: body;
-    background: linear-gradient(rgb(31, 29, 29), rgb(54, 156, 68),blue, rgb(24, 22, 22));
+    background: linear-gradient(rgb(31, 29, 29),blue, rgb(54, 156, 68), rgb(24, 22, 22));
+    border: 5px solid black;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+.fishLogs {
+  background: white;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 30px;
+  font-size: 18px;
+  margin-bottom: 3vh;
+}
+.fishLogId {
+  font-size: 3vh;
+  font-weight: bold;
+}
+.logDate{
+  font-size: 2vh;
+  font-weight: bold;
+}
+.logLocation {
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+#logTable {
+  width: 90%;
+  border: 5px solid black;
+   border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    /* font-family: sans-serif; */
+     font-family: 'Lobster',  Arial, Helvetica cursive;
+    min-width: 50vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: 2.5vw;
+    margin-top: 10vh;
+    background: linear-gradient(rgb(179, 174, 248), #4d3bf3);
+    
+}
+#logTable thead  tr {
+    /* background-color: #009879; */
+     background-image: url("../assets/Camo.jpg");
+      background-size: 100%;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4vh;
+    text-shadow:  7px 7px 7px rgb(0, 0, 0), 0 0 25px rgb(5, 5, 36), 0 0 10px rgb(38, 38, 49);
+  
+}
+#logTable  th,
+#logTable td {
+    padding: 1vh 4vw;
+}
+#logTable td{
+   border-right: 5px solid black;
+}
+#logTable tbody  tr {
+    border-bottom: 1px solid #dddddd;
+    
+}
+
+#logTable tbody  tr:nth-of-type(even) {
+    background-color: #746d6d;
+}
+
+#logTable tbody tr:last-of-type {
+    border-bottom: 1vh solid #080050;
+}
+#viewLogButton{
+  width: 100%;
+  height: 5.5vh;
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 2vh;
+  background: linear-gradient(white, white,rgb(20, 107, 10));
+}
+#viewLogButton:hover{
+  background: gray;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
 </style>

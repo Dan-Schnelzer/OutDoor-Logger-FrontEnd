@@ -48,6 +48,7 @@
   border-bottom: solid 4px #b4b0ad;
   background-image: linear-gradient( #02144d,rgb(201, 196, 196),#02144d);
   color: #464443;
+   box-shadow: 10px 10px 10px rgb(0, 0, 0);
   
 }
 p{

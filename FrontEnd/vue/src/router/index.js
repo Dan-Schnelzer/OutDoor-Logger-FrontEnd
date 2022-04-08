@@ -13,6 +13,8 @@ import ViewFishingLogs from '../views/ViewFishingLogs.vue'
 import ViewHuntingLogs from '../views/ViewHuntingLogs.vue'
 import ViewScoutingLogs from '../views/ViewScoutingLogs.vue'
 import ViewHikingLogs from '../views/ViewHikingLogs.vue'
+import ViewFishLog from '../views/ViewFishLog.vue'
+
 
 
 Vue.use(Router)
@@ -126,6 +128,14 @@ const router = new Router({
       requiresAuth: true
     }
   },
+  {
+  path: "/view/fish/log",
+  name: "view-fish-log",
+  component: ViewFishLog,
+  meta: {
+    requiresAuth: true
+  }
+},
 
   ]
 })

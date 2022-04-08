@@ -61,6 +61,13 @@ export default new Vuex.Store({
         const fishLog = Response.data;
         context.commit('SET_FISH_LOG', fishLog);
       });
+    },
+    LOAD_ALL_FISH_LOGS(context,userId){
+      FishLogService.getFishLogsByUser(userId).then ( (Response) =>
+      {
+        const fishLogs = Response.data;
+        context.commit('SET_FISH_LOGS', fishLogs );
+      });
     }
   }
 })
