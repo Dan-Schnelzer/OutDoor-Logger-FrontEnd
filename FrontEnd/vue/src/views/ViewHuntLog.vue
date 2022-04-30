@@ -13,31 +13,31 @@
       <router-link :to="{ name: 'view-hiking-logs' }" class="nav-button">
         View Hiking Logs</router-link>
 
-        <router-link :to="{ name: 'fishing-new-log' }" class="nav-button">
-        Create New Fishing Log</router-link>
+        <router-link :to="{ name: 'hunting-new-log' }" class="nav-button">
+        Create New Hunting Log</router-link>
     </nav>
    <article id="form-background">
           <!-- <div id="fishLog"> -->
            <div id="headLine">
-         <h1 class="logLocation">{{  fishLog.logLocation }} </h1>
-                <p class="logDate">{{ fishLog.logDate }}</p>
+         <h1 class="logLocation">{{  huntLog.logLocation }} </h1>
+                <p class="logDate">{{ huntLog.logDate }}</p>
            </div>
            <div id="imageBig">
-              <p class="imageURL">{{  fishLog.imageURL }} :  images  </p>
+              <p class="imageURL">{{  huntLog.imageURL }} :  images  </p>
               <!-- ***** this is what we will figure out later- loading the images here ****** -->
            </div>
           <div id="rightSide">
-         <p class="fishLogId"> Fish-Log Id : {{ fishLog.fishLogId }} </p>
-        <p class="logProps"> Fishing Trip : </p>
-        <p class="logData" > {{  fishLog.fishingTrip }}  </p>
-        <p class="logProps"> Bait Used : </p>
-        <p class="logData"> {{  fishLog.bait }} </p>
+         <p class="huntLogId"> Hunt-Log Id : {{ huntLog.huntLogId }} </p>
+        <p class="logProps"> Hunting Trip : </p>
+        <p class="logData" > {{  huntLog.huntingTrip }}  </p>
+        <p class="logProps"> Hunting Type : </p>
+        <p class="logData"> {{  huntLog.huntingType }} </p>
         <p class="logProps"> Weather Conditions : </p>
-        <p class="logData" >{{  fishLog.weather }}</p>
+        <p class="logData" >{{  huntLog.weather }}</p>
           </div>
           <div id="logDesc">
-        <p id="logDescription"> Fish-Log Description : </p>
-        <p class="logData">  {{  fishLog.logDescription }}</p>
+        <p id="logDescription"> Hunt-Log Description : </p>
+        <p class="logData">  {{  huntLog.logDescription }}</p>
           <!-- </div> -->
         
          
@@ -48,17 +48,17 @@
 
 <script>
 export default {
- name: 'view-fish-log',
+ name: 'view-hunt-log',
  data(){
      return{};
  },
-//   fishLog: [],
+
  created(){
-    this.$store.dispatch("LOAD_FISH_LOG", this.$route.params.id);
+    this.$store.dispatch("LOAD_HUNT_LOG", this.$route.params.id);
   },
   computed:{
-      fishLog(){
-          return this.$store.state.fishLog;
+      huntLog(){
+          return this.$store.state.huntLog;
       },
   }
  
@@ -162,7 +162,7 @@ nav {
   font-size: 18px;
   margin-bottom: 3vh; */
 }
-.fishLogId {
+.huntLogId {
   font-size: 3vh;
   font-weight: bold;
 }

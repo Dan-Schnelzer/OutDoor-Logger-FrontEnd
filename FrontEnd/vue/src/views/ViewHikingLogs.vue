@@ -15,25 +15,51 @@
         View Hiking Logs</router-link>
 
         <router-link :to="{ name: 'hiking-new-log' }" class="nav-button">
-        Create New Hiking Log?</router-link>
+        Create New Hiking Log</router-link>
     </nav>
     <article id="form-background">
         <h1>This is viewing your Hiking logs</h1>
-        <div >
-           <log-list></log-list>
-        </div>
+
+         <table id="logTable">
+         <thead>
+  <tr>
+    <th>Log Id</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th></th>
+  </tr>
+         </thead>
+        <tbody>
+      <tr class="HikeLogs" v-for="hikeLog in $store.state.hikeLogs" v-bind:key="hikeLog.id" >
+        <td class="data" id="hikeLogId"> ID : {{ hikeLog.hikingLogId }}</td>
+        <td class="data" id="logDate">{{ hikeLog.logDate }} </td>
+         <td class="data" id="logLocation">{{  hikeLog.logLocation }}</td>
+        <td>  <router-link  :to = "{ name: 'view-hike-log', params: {id: hikeLog.hikingLogId}}"> <button id="viewLogButton"> View  Log </button></router-link> </td>
+      </tr>
+        </tbody>
+
+    </table>
+       
     </article>
 
 </div>
 </template>
 
 <script>
-import LogList from "../components/LogList.vue";
+
 export default {
 name: "view-hiking-logs",
 components: {
-   LogList,
- }
+ },
+ data() {
+   return{
+     hikeLog: [],
+     hikeLogs: [],
+   };
+ },
+ created(){
+   this.$store.dispatch("LOAD_ALL_HIKE_LOGS", this.$store.state.user.id);
+ },
 };
 </script>
 
@@ -59,7 +85,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 3px solid rgb(44, 19, 8);
+  border: 3px solid rgb(0, 0, 0);
   background-image: url("../assets/Camo.jpg");
   background-size: 100%;
    box-shadow: 6px 6px 6px rgb(51, 50, 50);
@@ -94,7 +120,91 @@ h1{
 
 #form-background{
     grid-area: body;
-    background: linear-gradient(rgb(31, 29, 29), rgb(54, 156, 68),blue, rgb(175, 175, 6));
+   background: linear-gradient(rgb(31, 29, 29),blue, rgb(54, 156, 68), rgb(24, 22, 22));
+     border: 5px solid black;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
+
+.hikeLogs {
+  background: white;
+  border: solid 1px black;
+  border-radius: 10px;
+  padding: 30px;
+  font-size: 18px;
+  margin-bottom: 3vh;
+}
+#hikeLogId {
+  font-size: 3vh;
+  font-weight: bold;
+}
+#logDate{
+  font-size: 2vh;
+  font-weight: bold;
+}
+#logLocation {
+  font-size: 2vh;
+  font-weight: bold;
+}
+
+#logTable {
+  width: 90%;
+  border: 5px solid black;
+   border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    /* font-family: sans-serif; */
+     font-family: 'Lobster',  Arial, Helvetica cursive;
+    min-width: 50vw;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    margin-left: 3.5vw;
+    margin-top: 10vh;
+    background: linear-gradient(rgb(179, 174, 248), #4d3bf3);
+    
+}
+#logTable thead  tr {
+    /* background-color: #009879; */
+     background-image: url("../assets/Camo.jpg");
+      background-size: 100%;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 4.5vh;
+    text-shadow:  10px 10px 10px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0px 15px rgb(0, 0, 0);
+ 
+}
+#logTable  th,
+.data {
+   padding-left: 1vw;
+   min-width: 8vw;
+   max-width: 36vw;
+}
+#logTable td{
+   border-right: 5px solid black;
+}
+#logTable tbody  tr {
+    border-bottom: 1px solid #dddddd;
+    
+}
+
+#logTable tbody  tr:nth-of-type(even) {
+    background-color: #746d6d;
+}
+
+#logTable tbody tr:last-of-type {
+    border-bottom: 1vh solid #080050;
+}
+#viewLogButton{
+  width: 100%;
+  height: 5.5vh;
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
+  font-weight: bolder;
+  font-size: 2vh;
+  background: linear-gradient(white, white,rgb(20, 107, 10));
+}
+#viewLogButton:hover{
+  background: gray;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
 
 </style>

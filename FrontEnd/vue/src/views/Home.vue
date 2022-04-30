@@ -75,7 +75,7 @@ export default {
    font-size: 7vh;
     font-family: 'Lobster',  Arial, Helvetica cursive;
      text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
-     align-self: center;
+     align-self: flex-start;
 }
 .logButtons{
  background-color: rgba(12, 109, 36, 0.808);
@@ -151,7 +151,7 @@ background-size: cover;
   font-size: 7vh;
    font-family: 'Lobster',  Arial, Helvetica cursive;
      text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
-      align-self: center;
+      align-self: flex-start;
 }
 
 @media only screen and (max-width: 800px){

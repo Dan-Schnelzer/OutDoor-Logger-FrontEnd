@@ -6,5 +6,8 @@ export default{
     },
     getFishLogById(logId){
         return axios.get(`/outdoorlogger/fishinglog/${logId}`);
-    }
+    },
+    createFishLog(fishLog){
+        return axios.post('/outdoorlogger/fishinglog/create', fishLog);
+    },
 }

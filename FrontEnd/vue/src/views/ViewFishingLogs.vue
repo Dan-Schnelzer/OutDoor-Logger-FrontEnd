@@ -15,22 +15,10 @@
         View Hiking Logs</router-link>
 
         <router-link :to="{ name: 'fishing-new-log' }" class="nav-button">
-        Create New Fishing Log?</router-link>
+        Create New Fishing Log</router-link>
     </nav>
     <article id="form-background">
         <h1>This is viewing your fishing logs</h1>
-        <!-- <div >
-  <view-fish-log  
-           
-              :fishLogs="this.$store.state.fishLogs"> 
-           </view-fish-log>
-        </div> -->
-            
-             <!-- <div class="fishLog"> -->
-    <!-- <router-link
-      class="deck-link"
-      :to="{ name: 'deck-details', params: { id: id } }"
-    > -->
 
        <table id="logTable">
          <thead>
@@ -43,10 +31,10 @@
          </thead>
         <tbody>
       <tr class="FishLogs" v-for="fishLog in $store.state.fishLogs" v-bind:key="fishLog.id" >
-        <td class="fishLogId"> ID : {{ fishLog.fishLogId }}</td>
-        <td class="logDate">{{ fishLog.logDate }} </td>
-         <td class="logLocation">{{  fishLog.logLocation }}</td>
-          <router-link  :to = "{ name: 'view-fish-log', params: {id: fishLog.fishLogId}}"> <button id="viewLogButton"> View  Log </button></router-link> 
+        <td class="data" id="fishLogId"> ID : {{ fishLog.fishLogId }}</td>
+        <td class="data" id="logDate">{{ fishLog.logDate }} </td>
+         <td class="data" id="logLocation">{{  fishLog.logLocation }}</td>
+         <td> <router-link  :to = "{ name: 'view-fish-log', params: {id: fishLog.fishLogId}}"> <button id="viewLogButton"> View  Log </button></router-link> </td>
       </tr>
         </tbody>
 
@@ -148,15 +136,15 @@ h1{
   font-size: 18px;
   margin-bottom: 3vh;
 }
-.fishLogId {
+#fishLogId {
   font-size: 3vh;
   font-weight: bold;
 }
-.logDate{
+#logDate{
   font-size: 2vh;
   font-weight: bold;
 }
-.logLocation {
+#logLocation {
   font-size: 2vh;
   font-weight: bold;
 }
@@ -171,7 +159,7 @@ h1{
      font-family: 'Lobster',  Arial, Helvetica cursive;
     min-width: 50vw;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-    margin-left: 2.5vw;
+    margin-left: 3.5vw;
     margin-top: 10vh;
     background: linear-gradient(rgb(179, 174, 248), #4d3bf3);
     
@@ -183,13 +171,16 @@ h1{
     color: #ffffff;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 4vh;
-    text-shadow:  7px 7px 7px rgb(0, 0, 0), 0 0 25px rgb(5, 5, 36), 0 0 10px rgb(38, 38, 49);
-  
+    font-size: 4.5vh;
+    text-shadow:  10px 10px 10px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0px 15px rgb(0, 0, 0);
+ 
 }
 #logTable  th,
-#logTable td {
-    padding: 1vh 4vw;
+.data {
+    
+    padding-left: 1vw;
+    min-width: 9vw;
+    max-width: 33vw;
 }
 #logTable td{
    border-right: 5px solid black;
@@ -218,5 +209,14 @@ h1{
   background: gray;
   box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
+
+/* <textarea name="text" id="text" cols="30" rows="10" oninput="countText()">
+
+
+function countText() {
+  let text = document.form_main.text.value;
+document.getElementById('characters').innerText = text.length;
+}
+try this to see how it looks for counting chars in the txt boxes */
 
 </style>

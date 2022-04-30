@@ -14,7 +14,9 @@ import ViewHuntingLogs from '../views/ViewHuntingLogs.vue'
 import ViewScoutingLogs from '../views/ViewScoutingLogs.vue'
 import ViewHikingLogs from '../views/ViewHikingLogs.vue'
 import ViewFishLog from '../views/ViewFishLog.vue'
-
+import ViewHuntLog from '../views/ViewHuntLog.vue'
+import ViewHikeLog from '../views/ViewHikeLog.vue'
+import ViewScoutLog from '../views/ViewScoutLog.vue'
 
 
 Vue.use(Router)
@@ -132,6 +134,30 @@ const router = new Router({
   path: "/view/fish/log",
   name: "view-fish-log",
   component: ViewFishLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/view/hunt/log",
+  name: "view-hunt-log",
+  component: ViewHuntLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/view/hike/log",
+  name: "view-hike-log",
+  component: ViewHikeLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/view/scout/log",
+  name: "view-scout-log",
+  component: ViewScoutLog,
   meta: {
     requiresAuth: true
   }

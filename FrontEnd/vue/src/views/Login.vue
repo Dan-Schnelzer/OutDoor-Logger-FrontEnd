@@ -4,7 +4,8 @@
     <div id="login" class="text-center">
       <form class="form-signin" @submit.prevent="login">
         <div id="Out-Door">
-        <h1 class="h3 mb-3 font-weight-normal">Out-Door Logger</h1>
+          <h1>Welcome to the</h1>
+        <h1 class="h3 ">Out-Door Logger</h1>
         </div>
         <div id="LoggingIn">
         <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
@@ -103,14 +104,17 @@ export default {
 #Out-Door{
   /* display: flex; */
   text-align: center;
-  padding: 7vh;
+  padding: 3vh;
   /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 2.5vh;
   color: rgb(0, 0, 0);
   text-shadow: 4px 4px 4px gray, 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
   font-family: 'Lobster',  Arial, Helvetica cursive;
 }
-
+.h3{
+  font-size: 9vh;
+  margin-top: -4vh;
+}
 #LoggingIn{
   /* display: flex; */
  
