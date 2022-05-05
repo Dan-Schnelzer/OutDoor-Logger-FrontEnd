@@ -5,6 +5,8 @@ import FishLogService from '../services/FishLogService.js'
 import HuntLogService from '../services/HuntLogService.js'
 import HikingLogService from '../services/HikingLogService.js'
 import ScoutReportService from '../services/ScoutReportService.js'
+import router from '../router/index.js'
+
 
 Vue.use(Vuex)
 
@@ -60,6 +62,18 @@ export default new Vuex.Store({
       state.fishLogs.push(fishLog);
       // whether we need .push or .add, we will see as we code this out
     },
+    DELETE_FISH_LOG(state, logId){
+      state.fishLogs = state.fishLogs.filter( (fishLog) => {
+        return fishLog.logId != logId;
+      })
+    },
+    EDIT_FISH_LOG(state, editedFishLog){
+      for (let i = 0; i < state.fishLogs.length; i++){
+        if (state.fishLogs[i].fishLogId === editedFishLog.fishLogId){
+          state.fishLogs[i] = editedFishLog;
+        }
+      }
+    },
 
 
     SET_HUNT_LOG(state, huntLog){
@@ -70,6 +84,18 @@ export default new Vuex.Store({
     },
     ADD_HUNT_LOG(state, huntLog){
       state.huntLogs.push(huntLog);
+    },
+    DELETE_HUNT_LOG(state, logId){
+      state.huntLogs = state.huntLogs.filter( (huntLog) => {
+        return huntLog.logId != logId;
+      })
+    },
+    EDIT_HUNT_LOG(state, editedHuntLog){
+      for (let i = 0; i < state.huntLogs.length; i++){
+        if (state.huntLogs[i].huntLogId === editedHuntLog.huntLogId){
+          state.huntLogs[i] = editedHuntLog;
+        }
+      }
     },
 
 
@@ -82,6 +108,18 @@ export default new Vuex.Store({
     ADD_HIKE_LOG(state, hikeLog){
       state.hikeLogs.push(hikeLog);
     },
+    DELETE_HIKE_LOG(state, logId){
+      state.hikeLogs = state.hikeLogs.filter( (hikeLog) => {
+        return hikeLog.logId != logId;
+      })
+    },
+    EDIT_HIKE_LOG(state, editedHikeLog){
+      for (let i = 0; i < state.hikeLogs.length; i++){
+        if (state.hikeLogs[i].hikingLogId === editedHikeLog.hikingLogId){
+          state.hikeLogs[i] = editedHikeLog;
+        }
+      }
+    },
 
 
     SET_SCOUT_LOG(state, scoutLog){
@@ -93,6 +131,19 @@ export default new Vuex.Store({
     ADD_SCOUT_LOG(state, scoutLog){
       state.scoutLogs.push(scoutLog);
     },
+    DELETE_SCOUT_LOG(state, logId){
+      state.scoutLogs = state.scoutLogs.filter( (scoutLog) => {
+        return scoutLog.scoutReportID != logId;
+      })
+    },
+    EDIT_SCOUT_LOG(state, editedScoutLog){
+      for (let i = 0; i < state.scoutLogs.length; i++){
+        if (state.scoutLogs[i].scoutReportID === editedScoutLog.scoutReportID){
+          state.scoutLogs[i] = editedScoutLog;
+        }
+      }
+    },
+
 
   },
   actions: {
@@ -119,6 +170,24 @@ export default new Vuex.Store({
         }
       });
     },
+    DELETE_FISH_LOG(context, logId){
+      FishLogService.deleteFishLog(logId).then( (Response) =>
+      {
+        if (Response.status == 200){
+          context.commit('DELETE_FISH_LOG', logId);
+        }
+      });
+    },
+    EDIT_FISH_LOG(context, fishLog){
+      FishLogService.editFishLog(fishLog).then ( (Response) => {
+        const editedFishLog = Response.data;
+        context.commit('EDIT_FISH_LOG', editedFishLog);
+        router.push( { name: 'home' } );
+      });
+    },
+
+
+
 
     LOAD_HUNT_LOG(context, logId){
       HuntLogService.getHuntLogById(logId).then( (Response) =>
@@ -143,6 +212,23 @@ export default new Vuex.Store({
         }
       });
     },
+    DELETE_HUNT_LOG(context, logId){
+      HuntLogService.deleteHuntLog(logId).then( (Response) =>
+      {
+        if (Response.status == 200){
+          context.commit('DELETE_HUNT_LOG', logId);
+        }
+      });
+    },
+    EDIT_HUNT_LOG(context, huntLog){
+      HuntLogService.editHuntLog(huntLog).then ( (Response) => {
+        const editedHuntLog = Response.data;
+        context.commit('EDIT_HUNT_LOG', editedHuntLog);
+        router.push( { name: 'home' } );
+      });
+    },
+
+
 
 
     LOAD_HIKE_LOG(context, logId){
@@ -168,6 +254,22 @@ export default new Vuex.Store({
         }
       });
     },
+    DELETE_HIKE_LOG(context, logId){
+      HikingLogService.deleteHikeLog(logId).then( (Response) =>
+      {
+        if (Response.status == 200){
+          context.commit('DELETE_HIKE_LOG', logId);
+        }
+      });
+    },
+    EDIT_HIKE_LOG(context, hikeLog){
+      HikingLogService.editHikeLog(hikeLog).then ( (Response) => {
+        const editedHikeLog = Response.data;
+        context.commit('EDIT_HIKE_LOG', editedHikeLog);
+        router.push( { name: 'home' } );
+      });
+    },
+
 
 
     LOAD_SCOUT_LOG(context, logId){
@@ -191,6 +293,21 @@ export default new Vuex.Store({
           const newScoutLog = Response.data;
           context.commit('ADD_SCOUT_LOG', newScoutLog);
         }
+      });
+    },
+    DELETE_SCOUT_LOG(context, logId){
+      ScoutReportService.deleteScoutLog(logId).then( (Response) =>
+      {
+        if (Response.status == 200){
+          context.commit('DELETE_SCOUT_LOG', logId);
+        }
+      });
+    },
+    EDIT_SCOUT_LOG(context, scoutLog){
+      ScoutReportService.editScoutLog(scoutLog).then ( (Response) => {
+        const editedScoutLog = Response.data;
+        context.commit('EDIT_SCOUT_LOG', editedScoutLog);
+        router.push( { name: 'home' } );
       });
     },
     

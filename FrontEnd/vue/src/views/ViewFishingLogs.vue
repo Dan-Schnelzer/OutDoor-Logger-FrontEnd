@@ -92,7 +92,7 @@ nav {
   border: 3px solid rgb(0, 0, 0);
    background-image: url("../assets/Camo.jpg");
   background-size: 100%;
-   box-shadow: 6px 6px 6px rgb(51, 50, 50);
+   box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 
 .nav-button {
@@ -111,11 +111,11 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
-  box-shadow: 8px 8px 8px rgb(0, 0, 0);
+  box-shadow: 12px 12px 12px rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
-   box-shadow: 16px 16px 16px rgb(0, 0, 0);
+   box-shadow: 18px 18px 18px rgb(0, 0, 0);
 }
 h1{
     text-align: center;
@@ -125,7 +125,7 @@ h1{
 #form-background{
     grid-area: body;
     background: linear-gradient(rgb(31, 29, 29),blue, rgb(54, 156, 68), rgb(24, 22, 22));
-    border: 5px solid black;
+    border: 3px solid black;
     box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 .fishLogs {
@@ -162,7 +162,7 @@ h1{
     margin-left: 3.5vw;
     margin-top: 10vh;
     background: linear-gradient(rgb(179, 174, 248), #4d3bf3);
-    
+    box-shadow: 12px 12px 12px rgb(0, 0, 0);
 }
 #logTable thead  tr {
     /* background-color: #009879; */

@@ -15,6 +15,9 @@
 
         <router-link :to="{ name: 'hunting-new-log' }" class="nav-button">
         Create New Hunting Log</router-link>
+
+         <router-link id="edit" class="nav-button" :to="{ name:'edit-hunt-log', params: {id: huntLog.huntLogId}  }">
+             EDIT HUNT <br> * LOG *   </router-link>
     </nav>
    <article id="form-background">
           <!-- <div id="fishLog"> -->
@@ -86,10 +89,10 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 3px solid rgb(44, 19, 8);
+  border: 3px solid rgb(0, 0, 0);
    background-image: url("../assets/Camo.jpg");
   background-size: 100%;
-  box-shadow: 6px 6px 6px rgb(51, 50, 50);
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 
 .nav-button {
@@ -108,17 +111,21 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
-  box-shadow: 8px 8px 8px rgb(0, 0, 0);
+  box-shadow: 12px 12px 12px rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
-  box-shadow: 16px 16px 16px rgb(0, 0, 0);
+  box-shadow: 18px 18px 18px rgb(0, 0, 0);
 }
 
 
 #form-background{
     grid-area: body;
- background: linear-gradient(rgb(31, 29, 29),blue, rgb(54, 156, 68), rgb(24, 22, 22));
+ 
+   background-image: url("../assets/backG3.jpg");
+       background-size: 100%;
+  border: solid 3px black;
+  border-radius: 10px;
      display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas:
@@ -127,6 +134,7 @@ nav {
     "image image right-side"
     "desc desc desc";
   column-gap: 10px;
+   box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
 #headLine{
@@ -136,7 +144,7 @@ nav {
 
 #imageBig{
   grid-area: image;
- 
+ border: 3px solid black;
 }
 
 #rightSide{
@@ -153,28 +161,21 @@ nav {
   font-size: 3vh;
    font-family: 'Lobster',  Arial, Helvetica cursive;
    margin-top: 0vh;
-}
-#form-background {
-  background: white;
-  border: solid 1px black;
-  border-radius: 10px;
-  /* padding: 30px;
-  font-size: 18px;
-  margin-bottom: 3vh; */
+   text-shadow: 1px 1px 1px rgb(255, 255, 255);
 }
 .huntLogId {
-  font-size: 3vh;
+  font-size: 4vh;
   font-weight: bold;
 }
 .logDate{
-  font-size: 3vh;
+  font-size: 5vh;
   font-weight: bold;
   text-align: center;
   margin-top: 0vh;
 
 }
 .logLocation {
-  font-size: 4vw;
+  font-size: 3vw;
   font-weight: bold;
   text-align: center;
   margin-top: 2vh;
@@ -182,7 +183,7 @@ nav {
 
 }
 #logDescription {
-  font-size: 3vh;
+  font-size: 5vh;
   font-weight: bold;
   margin-bottom: 0vh;
 }
@@ -191,17 +192,12 @@ nav {
   font-weight: bold;
 }
 .logProps {
-  font-size: 3vh;
+  font-size: 4vh;
   font-weight: bold;
   margin-bottom: 0vh;
 }
-.weather {
-  font-size: 3vh;
-  font-weight: bold;
-}
-.fishingTrip {
-  font-size: 3vh;
-  font-weight: bold;
+#edit{
+  text-decoration: underline;
 }
 
 </style>

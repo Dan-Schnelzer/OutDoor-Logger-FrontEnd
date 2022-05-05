@@ -10,4 +10,10 @@ export default{
     createHikeLog(hikeLog){
         return axios.post('/outdoorlogger/hikinglog/create', hikeLog);
     },
+    deleteHikeLog(logId){
+        return axios.delete(`/outdoorlogger/hikinglog/${logId}`);
+    },
+    editHikeLog(hikeLog){
+        return axios.put(`/outdoorlogger/hikinglog/update/${hikeLog.hikingLogId}`, hikeLog)
+    }
 }

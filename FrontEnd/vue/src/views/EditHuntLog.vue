@@ -1,10 +1,10 @@
 <template>
-<div class="view">
+   <div class="view">
   
   <nav>
       <router-link :to="{ name: 'view-fishing-logs' }" class="nav-button"     
         >View Fishing Logs</router-link>
-                                                
+                                                    
       <router-link :to="{ name: 'view-hunting-logs' }" class="nav-button">
         View Hunting Logs</router-link>
       
@@ -15,39 +15,38 @@
         View Hiking Logs</router-link>
     </nav>
     <article id="form-background">
-       
-        <div id="form-container">
-          <form>
-            <h1>Create a new Fishing Log</h1>
+          <div id="form-container">
+        <h1>Update This Hunting Log</h1>
+          <form v-if="this.$store.state.user.id == this.huntLog.userId">
             <label class="labels" for="date">Choose the Date :</label>
             <input
               type="date"
               id="date"
               name="date"
-              v-model="newFishLog.logDate"
+              v-model="huntLog.logDate"
               required = true
             />
-            <label class="labels" for="location">Fishing Location :</label>
+            <label class="labels" for="location">Hunting Location :</label>
             <textarea
               id="location"
               name="location"
               rows="2"
               cols="50"
               class="input"
-              v-model="newFishLog.logLocation"
-              placeholder="Fishing Location   (max 100 characters)"
-              maxlength="100"
+              v-model="huntLog.logLocation"
+              placeholder="Hunting Location   (max 200 characters)"
+              maxlength="200"
             ></textarea>
-            <label class="labels" for="bait">Fishing Baits Used :</label>
+            <label class="labels" for="type">Type of Hunting :</label>
             <textarea
               rows="4"
               cols="50"
-              id="bait"
-              name="bait"
-              placeholder="Baits Used?  (max 500 characters)"
+              id="type"
+              name="type"
+              placeholder="Type of Hunting  (max 200 characters)"
               class="input"
-              v-model="newFishLog.bait"
-              maxlength="500"
+              v-model="huntLog.huntingType"
+              maxlength="200"
             ></textarea>
             <label class="labels" for="weather">Weather Conditions :</label>
             <textarea
@@ -56,22 +55,22 @@
               rows="2"
               cols="50"
               class="input"
-              v-model="newFishLog.weather"
-              placeholder="Fishing Weather  (max 100 characters)"
+              v-model="huntLog.weather"
+              placeholder="Hunting Weather  (max 100 characters)"
               maxlength="100"
             ></textarea>
-            <label class="labels" for="fishTrip">Was this a Fishing Trip? :</label>
+            <label class="labels" for="huntTrip">Was this a Hunting Trip? :</label>
             <textarea
               rows="3"
               cols="50"
-              id="fishTrip"
-              name="fishTrip"
-              placeholder="What fishing trip?   (max 200 characters)"
+              id="huntTrip"
+              name="huntTrip"
+              placeholder="What hunting trip?   (max 200 characters)"
               class="input"
-              v-model="newFishLog.fishingTrip"
+              v-model="huntLog.huntingTrip"
               maxlength="200"
             ></textarea>
-            <label class="labels" for="description">Fishing Log Description :</label>
+            <label class="labels" for="description">Hunting Log Description :</label>
             <textarea
               rows="5"
               cols="50"
@@ -79,17 +78,16 @@
               name="description"
               placeholder="Required*  What is log description?    (max 2000 characters)"
               class="input"
-              v-model="newFishLog.logDescription"
+              v-model="huntLog.logDescription"
               maxlength="2000"
               required= true
             ></textarea>
-            <div id="save-buttons">
-              <button id="save" v-on:click.prevent="createFishLog">Save</button>
+            <div id="buttons">
+              <button id="save" v-on:click.prevent="editHuntLog">Save</button>
+              <button id="delete" v-on:click.prevent="deleteHuntLog(huntLog.huntLogId)"> Delete </button>
             </div>
           </form>
         </div>
-    
-
 
     </article>
 
@@ -97,37 +95,35 @@
 </template>
 
 <script>
+import HuntLogService from "../services/HuntLogService.js"
 export default {
-  name: "fishing-new-log",
-  data(){
-    return{
-      newFishLog: {
-        userId: this.$store.state.user.id,
-        logDate: "",
-        logLocation: "",
-        logDescription: "",
-        imageURL: "This would be image url",
-        bait: "",
-        weather: "",
-        fishingTrip: "",
-      },
-    };
-  },
-  methods: {
-    createFishLog(){
-      if (this.newFishLog.logDate != "" && this.newFishLog.logDescription != ""){
-      const newFishLog = {
-        ...this.newFishLog,
-      };
-      this.$store.dispatch("CREATE_NEW_FISH_LOG", newFishLog);
-      this.$router.push( { name: "home" });
-    }
-    else  window.confirm("* Date and Description required *");
-    }
-  },
+    name: 'edit-hunt-log',
+    data(){
+        return{
+            huntLog: {},
+        };
+    },
+    methods:{
+        deleteHuntLog(huntLogId){
+             if (window.confirm( "Are you sure you want to delete?")){
+                this.$store.dispatch("DELETE_HUNT_LOG", huntLogId);
+                this.$router.push( { name: "home" } );
+            }
+        },
+        editHuntLog(){
+             if (this.huntLog.logDate != "" && this.huntLog.logDescription !="") {
+               const editedHuntLog = { ...this.huntLog};
+            this.$store.dispatch("EDIT_HUNT_LOG", editedHuntLog);
+             }  else  window.confirm("* Date and Description required *");
+        },
+    },
+    computed: {    },
+    created(){
+        HuntLogService.getHuntLogById( (this.$route.params.id)).then ( (Response) => {
+            this.huntLog = Response.data; })
+    },
 
-
-};
+}
 </script>
 
 <style scoped>
@@ -214,11 +210,17 @@ button {
   padding: 1.5vh 5vh;
   border-radius: 10px;
 }
+#delete{
+  background-color: rgb(173, 49, 49);
+}
+#delete:hover{
+  background-color: red;
+}
 button:hover {
    background-color: rgb(27, 206, 4);
    box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
-#save-buttons {
+#buttons {
   display: flex;
   justify-content: flex-end;
   gap: 4vh;

@@ -10,4 +10,10 @@ export default{
     createFishLog(fishLog){
         return axios.post('/outdoorlogger/fishinglog/create', fishLog);
     },
+    deleteFishLog(logId){
+        return axios.delete(`/outdoorlogger/fishinglog/${logId}`);
+    },
+    editFishLog(fishLog){
+        return axios.put(`/outdoorlogger/fishinglog/update/${fishLog.fishLogId}`, fishLog)
+    }
 }

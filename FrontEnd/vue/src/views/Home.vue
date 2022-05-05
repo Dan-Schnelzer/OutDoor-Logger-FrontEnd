@@ -69,6 +69,7 @@ export default {
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 #fish{
    color: rgb(12, 9, 9);
@@ -109,13 +110,14 @@ export default {
     display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 #hunt{
   color: rgb(12, 9, 9);
    font-size: 7vh;
     font-family: 'Lobster',  Arial, Helvetica cursive;
      text-shadow: 4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
-      align-self: center;
+      align-self: flex-start;
 }
 
 #Scouting{
@@ -125,13 +127,14 @@ export default {
     display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 #scout{
   color: black;
   font-size: 7vh;
    font-family: 'Lobster',  Arial, Helvetica cursive;
      text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
-      align-self: center;
+      align-self: flex-start;
 }
 
 #Hiking{
@@ -145,6 +148,7 @@ background-size: cover;
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 #hike{
   color: black;
@@ -169,16 +173,16 @@ background-size: cover;
     row-gap: 1vh;
 }
 #fish{
-   font-size: 5vh;
+   font-size: 3vh;
 }
 #hunt{
-  font-size: 5vh;
+  font-size: 3vh;
 }
 #scout{
-  font-size: 4vh;
+  font-size: 3vh;
 }
 #hike{
-  font-size: 5vh;
+  font-size: 3vh;
 }
 .logButtons{
   font-size: 15px;

@@ -149,10 +149,10 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  border: 3px solid rgb(44, 19, 8);
+  border: 3px solid rgb(0, 0, 0);
    background-image: url("../assets/Camo.jpg");
   background-size: 100%;
-   box-shadow: 6px 6px 6px rgb(51, 50, 50);
+   box-shadow: 6px 6px 6px rgb(0, 0, 0);
 }
 
 .nav-button {
@@ -171,11 +171,11 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
-   box-shadow: 8px 8px 8px rgb(0, 0, 0);
+   box-shadow: 12px 12px 12px rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
-   box-shadow: 16px 16px 16px rgb(0, 0, 0);
+   box-shadow: 18px 18px 18px rgb(0, 0, 0);
 }
 h1{
     text-align: center;
@@ -186,8 +186,9 @@ h1{
 
 #form-background{
     grid-area: body;
-   background: linear-gradient(rgb(31, 29, 29), rgb(54, 156, 68),blue, rgb(24, 22, 22));
-    
+    background: linear-gradient(rgb(31, 29, 29),blue, rgb(54, 156, 68), rgb(24, 22, 22));
+     box-shadow: 10px 10px 10px rgb(0, 0, 0);
+      border: 3px solid black;
 }
 
 
@@ -229,6 +230,7 @@ button:hover {
   background-color: white;
   padding: 12px 20px 12px 12px;
   margin: 1vh 3vh 2vh 0vh;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 .input:focus {
   outline: none;
@@ -241,10 +243,11 @@ button:hover {
   max-width: 20vw;
   min-height: 4vh;
   margin-bottom:  2vh;
+    box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 .labels{
   color: white;
-  font-size: 2.5vh;
+  font-size: 3vh;
        font-family: 'Lobster',  Arial, Helvetica cursive;
 }
 

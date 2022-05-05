@@ -17,6 +17,10 @@ import ViewFishLog from '../views/ViewFishLog.vue'
 import ViewHuntLog from '../views/ViewHuntLog.vue'
 import ViewHikeLog from '../views/ViewHikeLog.vue'
 import ViewScoutLog from '../views/ViewScoutLog.vue'
+import EditFishLog from '../views/EditFishLog.vue'
+import EditHuntLog from '../views/EditHuntLog.vue'
+import EditScoutLog from '../views/EditScoutLog.vue'
+import EditHikeLog from '../views/EditHikeLog.vue'
 
 
 Vue.use(Router)
@@ -158,6 +162,38 @@ const router = new Router({
   path: "/view/scout/log",
   name: "view-scout-log",
   component: ViewScoutLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/edit/fish/log/:id",
+  name: "edit-fish-log",
+  component: EditFishLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/edit/hunt/log/:id",
+  name: "edit-hunt-log",
+  component: EditHuntLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/edit/scout/log/:id",
+  name: "edit-scout-log",
+  component: EditScoutLog,
+  meta: {
+    requiresAuth: true
+  }
+},
+{
+  path: "/edit/hike/log/:id",
+  name: "edit-hike-log",
+  component: EditHikeLog,
   meta: {
     requiresAuth: true
   }

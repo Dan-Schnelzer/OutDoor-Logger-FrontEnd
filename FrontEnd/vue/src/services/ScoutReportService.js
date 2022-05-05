@@ -10,4 +10,10 @@ export default{
     createScoutLog(scoutLog){
         return axios.post('/outdoorlogger/scoutingreport/create', scoutLog);
     },
+    deleteScoutLog(logId){
+        return axios.delete(`/outdoorlogger/scoutingreport/${logId}`);
+    },
+    editScoutLog(scoutLog){
+        return axios.put(`/outdoorlogger/scoutingreport/update/${scoutLog.scoutReportID}`, scoutLog)
+    }
 }

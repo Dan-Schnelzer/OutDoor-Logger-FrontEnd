@@ -194,9 +194,9 @@ box-shadow: 6px 6px 6px rgb(51, 50, 50);
 @media only screen and (max-width: 800px) {
   #container {
   background-image: url("../assets/BackgroundSmall.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 100vh;
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  
   border: solid 1vh  rgb(36, 73, 194);
   }
  #username{

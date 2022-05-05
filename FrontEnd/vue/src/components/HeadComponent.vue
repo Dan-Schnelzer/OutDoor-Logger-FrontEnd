@@ -1,28 +1,31 @@
 <template>
     <div class="header-component">
-        <div id = "logo"> <p> This is space filler for logo </p>
-        <p> OutDoor Logger </p>
+        <div> 
+         <img id="logo" src="../assets/OutLogo2.png">
+        </div>
+        <div>
+        <p> The Out-Door Logger </p>
             <!-- <router-link  v-bind:to="{name: 'home'}"  > Home </router-link> -->
                 <!-- img goes here -->
         </div>
 
 <div id="links">
-      <div id="home">  
+      
         <router-link id="homeLink"
           v-bind:to="{ name: 'home' }"
           v-if="$store.state.token != ''"
           class="link"
           >Home
         </router-link>
-      </div>
-      <div id="logout"> 
+    
+     
         <router-link id="logout"
           v-bind:to="{ name: 'logout' }"
           v-if="$store.state.token != ''"
           class="link"
           >Logout
         </router-link>
-      </div>
+      
     </div>
 
 
@@ -38,32 +41,61 @@
 <style scoped>
 .header-component {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   justify-items: center;
-  display: grid;
-  grid-template-columns: 1fr 5fr;
-  grid-template-areas: "logo links";
   border: none;
   border-bottom: solid 4px #b4b0ad;
   background-image: linear-gradient( #02144d,rgb(201, 196, 196),#02144d);
+   background-image: url("../assets/Wooden.jpg");
+   background-size: 45%;
   color: #464443;
    box-shadow: 10px 10px 10px rgb(0, 0, 0);
-  
+  min-height: 13vh;
+  max-height: 13vh;
+  border-radius: 10px;
 }
 p{
   color: white;
-  
+  font-size: 3vw;
+  padding: 0vh 0vh 0vh 0vh;
+  margin: 0vh 0vh 0vh 0vh;
+   font-family: 'Lobster',  Arial, Helvetica cursive;
+   text-shadow: 7px 9px 10px  black;
+   background-image: url("../assets/flagBack.jpg");
+   background-size: cover;
+   min-width: 30vw;
+   text-align: center;
+   padding: 1vh 2vh  2vh 1vh;
+   -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+      outline: 2px solid rgb(105, 96, 96) ;
 }
 
 #homeLink{
   color: white;
-  padding: 2vh;
+  padding-right: 2vw;
+  font-size: 3vh;
   
 }
-
+#links{
+  display: flex;
+  padding-right: 2vw;
+  
+}
 #logout{
   color: white;
-  padding: 2vh;
+ 
+  font-size: 3vh;
+  /* BE SURE TO CHANGE THIS WHEN MAKING SCREEN FOR PHONES... THE SIZE NEEDS TO BE VW AND NOT VH ******** */
 }
+#logo{
+  max-width: 7vw;
+  /* max-width: 50%; */
+  border-radius: 10px;
+  margin-left: 4vw;
+  margin-top: .5vh;
+  outline: 2px solid rgb(105, 96, 96) ;
+}
+
 </style>

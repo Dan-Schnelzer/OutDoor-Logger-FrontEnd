@@ -1,5 +1,5 @@
 <template>
-<div class="view">
+  <div class="view">
   
   <nav>
       <router-link :to="{ name: 'view-fishing-logs' }" class="nav-button"     
@@ -17,14 +17,14 @@
     <article id="form-background">
        
         <div id="form-container">
-          <form>
-            <h1>Create a new Fishing Log</h1>
+            <h1>Update This Fishing Log</h1>
+          <form v-if="this.$store.state.user.id == this.fishLog.userId">
             <label class="labels" for="date">Choose the Date :</label>
             <input
               type="date"
               id="date"
               name="date"
-              v-model="newFishLog.logDate"
+              v-model="fishLog.logDate"
               required = true
             />
             <label class="labels" for="location">Fishing Location :</label>
@@ -34,7 +34,7 @@
               rows="2"
               cols="50"
               class="input"
-              v-model="newFishLog.logLocation"
+              v-model="fishLog.logLocation"
               placeholder="Fishing Location   (max 100 characters)"
               maxlength="100"
             ></textarea>
@@ -46,7 +46,7 @@
               name="bait"
               placeholder="Baits Used?  (max 500 characters)"
               class="input"
-              v-model="newFishLog.bait"
+              v-model="fishLog.bait"
               maxlength="500"
             ></textarea>
             <label class="labels" for="weather">Weather Conditions :</label>
@@ -56,7 +56,7 @@
               rows="2"
               cols="50"
               class="input"
-              v-model="newFishLog.weather"
+              v-model="fishLog.weather"
               placeholder="Fishing Weather  (max 100 characters)"
               maxlength="100"
             ></textarea>
@@ -68,7 +68,7 @@
               name="fishTrip"
               placeholder="What fishing trip?   (max 200 characters)"
               class="input"
-              v-model="newFishLog.fishingTrip"
+              v-model="fishLog.fishingTrip"
               maxlength="200"
             ></textarea>
             <label class="labels" for="description">Fishing Log Description :</label>
@@ -79,12 +79,13 @@
               name="description"
               placeholder="Required*  What is log description?    (max 2000 characters)"
               class="input"
-              v-model="newFishLog.logDescription"
+              v-model="fishLog.logDescription"
               maxlength="2000"
               required= true
             ></textarea>
-            <div id="save-buttons">
-              <button id="save" v-on:click.prevent="createFishLog">Save</button>
+            <div id="buttons">
+              <button id="save" v-on:click.prevent="editFishLog">Save</button>
+              <button id="delete" v-on:click.prevent="deleteFishLog(fishLog.fishLogId)"> Delete </button>
             </div>
           </form>
         </div>
@@ -97,37 +98,37 @@
 </template>
 
 <script>
+import FishLogService from "../services/FishLogService.js"
 export default {
-  name: "fishing-new-log",
+    name: 'edit-fish-log',
   data(){
     return{
-      newFishLog: {
-        userId: this.$store.state.user.id,
-        logDate: "",
-        logLocation: "",
-        logDescription: "",
-        imageURL: "This would be image url",
-        bait: "",
-        weather: "",
-        fishingTrip: "",
-      },
+      fishLog: {},
     };
   },
   methods: {
-    createFishLog(){
-      if (this.newFishLog.logDate != "" && this.newFishLog.logDescription != ""){
-      const newFishLog = {
-        ...this.newFishLog,
-      };
-      this.$store.dispatch("CREATE_NEW_FISH_LOG", newFishLog);
-      this.$router.push( { name: "home" });
-    }
-    else  window.confirm("* Date and Description required *");
+    deleteFishLog(fishLogId){
+      if (window.confirm("Are you sure you want to delete?")){
+        this.$store.dispatch("DELETE_FISH_LOG", fishLogId);
+        this.$router.push( { name: "home" } );
+      }
+    },
+    editFishLog(){
+    if (this.fishLog.logDate != "" && this.fishLog.logDescription != ""){
+      const editedFishLog = { ...this.fishLog};
+      this.$store.dispatch("EDIT_FISH_LOG", editedFishLog);
+    }else  window.confirm("* Date and Description required *");
     }
   },
 
+  computed: {},
+  created(){
+    FishLogService.getFishLogById( (this.$route.params.id)   ).then( (Response) => {
+      this.fishLog = Response.data;
+    });
+  },
 
-};
+}
 </script>
 
 <style scoped>
@@ -214,11 +215,17 @@ button {
   padding: 1.5vh 5vh;
   border-radius: 10px;
 }
+#delete{
+  background-color: rgb(173, 49, 49);
+}
+#delete:hover{
+  background-color: red;
+}
 button:hover {
    background-color: rgb(27, 206, 4);
    box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
-#save-buttons {
+#buttons {
   display: flex;
   justify-content: flex-end;
   gap: 4vh;
