@@ -191,11 +191,11 @@ box-shadow: 6px 6px 6px rgb(51, 50, 50);
 }
 
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 950px) {
   #container {
-  background-image: url("../assets/BackgroundSmall.jpg");
+  background-image: url("../assets/BackgroundSmall2.jpg");
   /* background-repeat: no-repeat; */
-  /* background-size: cover; */
+  background-size: cover;
   
   border: solid 1vh  rgb(36, 73, 194);
   }
@@ -212,7 +212,10 @@ box-shadow: 6px 6px 6px rgb(51, 50, 50);
 #needAccount{
   width: 20vw;
 }
-
+.h3{
+  font-size: 9vw;
+ 
+}
 
 }
 

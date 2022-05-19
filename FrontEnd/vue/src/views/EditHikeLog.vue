@@ -16,7 +16,7 @@
     </nav>
     <article id="form-background">
         <div id="form-container">
-            <h1>Create a new Hiking Log</h1>
+            <h1>Update this Hiking Log</h1>
           <form v-if="this.$store.state.user.id == this.hikeLog.userId" >
             <label class="labels" for="date">Choose the Date :</label>
             <input
@@ -161,7 +161,7 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
-   box-shadow: 12px 12px 12px rgb(0, 0, 0);
+   box-shadow: 9px 9px  rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
@@ -170,6 +170,8 @@ nav {
 h1{
     text-align: center;
     color: white;
+    font-size: 4vh;
+    text-decoration: underline;
 }
 
 #form-background{
@@ -242,5 +244,50 @@ button:hover {
   color: white;
   font-size: 3vh;
        font-family: 'Lobster',  Arial, Helvetica cursive;
+       text-shadow:  10px 10px 10px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0px 15px rgb(0, 0, 0);
+}
+@media only screen and (max-width: 950px){
+  .view {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+     "body";
+  row-gap: 2px;
+}
+nav {
+flex-direction: row;
+flex-wrap: wrap;
+max-height: 15vh;
+justify-content: space-evenly ;
+padding: 2vw;
+}
+
+.nav-button {
+  height: 10vw;
+  padding: 1vw;
+  font-size: 2.5vw;
+  width: 20vw;
+  margin: .2vh;
+  margin-bottom: 2px;
+  margin-top: 2px;
+    box-shadow: 6px 6px  rgb(0, 0, 0);
+}
+h1{
+    font-size: 6vw;
+    margin-top: 0vh;
+}
+form {
+  padding: 1vw;
+}
+.labels{
+  font-size: 5vw;
+}
+#buttons {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+#date{
+  max-width: 25vw;
+}
 }
 </style>

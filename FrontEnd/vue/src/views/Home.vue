@@ -50,6 +50,7 @@ export default {
  
 .home{
   min-height: 100vh;
+  min-width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas: 
@@ -75,7 +76,7 @@ export default {
    color: rgb(12, 9, 9);
    font-size: 7vh;
     font-family: 'Lobster',  Arial, Helvetica cursive;
-     text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
+     text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px #ffffff, 0 0 10px rgb(254, 254, 255);
      align-self: flex-start;
 }
 .logButtons{
@@ -105,8 +106,11 @@ export default {
 
 #Hunting{
   grid-area: hunting;
+   background-image: url("../assets/buck.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
    border: .5vh solid black;
-   background: rgb(83, 78, 65);
+   /* background: rgb(83, 78, 65); */
     display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -116,14 +120,17 @@ export default {
   color: rgb(12, 9, 9);
    font-size: 7vh;
     font-family: 'Lobster',  Arial, Helvetica cursive;
-     text-shadow: 4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
+     text-shadow: 4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(254, 254, 255), 0 0 10px rgb(255, 255, 255);
       align-self: flex-start;
 }
 
 #Scouting{
   grid-area: scouting;
    border: .5vh solid black;
-   background: rgb(85, 110, 85);
+   /* background: rgb(85, 110, 85); */
+   background-image: url("../assets/Scout.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
     display: flex;
   align-items: flex-end;
   justify-content: space-around;
@@ -133,7 +140,7 @@ export default {
   color: black;
   font-size: 7vh;
    font-family: 'Lobster',  Arial, Helvetica cursive;
-     text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
+     text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255), 0 0 10px rgb(255, 255, 255);
       align-self: flex-start;
 }
 
@@ -154,11 +161,11 @@ background-size: cover;
   color: black;
   font-size: 7vh;
    font-family: 'Lobster',  Arial, Helvetica cursive;
-     text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(25, 25, 223), 0 0 10px rgb(38, 38, 49);
+     text-shadow:  4px 4px 4px rgb(255, 255, 255), 0 0 25px rgb(255, 255, 255), 0 0 10px rgb(253, 253, 255);
       align-self: flex-start;
 }
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 950px){
   .home{
   min-height: 100vh;
   display: grid;
@@ -185,13 +192,14 @@ background-size: cover;
   font-size: 3vh;
 }
 .logButtons{
-  font-size: 15px;
+  font-size: 3vw;
   justify-self: flex-end;
   box-sizing: border-box;
   border:2px solid rgb(1, 51, 1);
   width: 20vw;
   box-shadow: 11px 11px 11px rgb(0, 0, 0);
-  height: 8vh;
+  height: 7vh;
+  padding-top: .8vh;
 }
 }
 </style>

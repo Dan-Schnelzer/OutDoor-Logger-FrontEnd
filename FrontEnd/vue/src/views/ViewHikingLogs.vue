@@ -18,7 +18,7 @@
         Create New Hiking Log</router-link>
     </nav>
     <article id="form-background">
-        <h1>This is viewing your Hiking logs</h1>
+        <h1>My Hiking Logs</h1>
 
          <table id="logTable">
          <thead>
@@ -31,7 +31,7 @@
          </thead>
         <tbody>
       <tr class="HikeLogs" v-for="hikeLog in $store.state.hikeLogs" v-bind:key="hikeLog.id" >
-        <td class="data" id="hikeLogId"> ID : {{ hikeLog.hikingLogId }}</td>
+        <td class="data" id="hikeLogId"> # : {{ hikeLog.hikingLogId }}</td>
         <td class="data" id="logDate">{{ hikeLog.logDate }} </td>
          <td class="data" id="logLocation">{{  hikeLog.logLocation }}</td>
         <td>  <router-link  :to = "{ name: 'view-hike-log', params: {id: hikeLog.hikingLogId}}"> <button id="viewLogButton"> View  Log </button></router-link> </td>
@@ -107,7 +107,7 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
-   box-shadow: 12px 12px 12px rgb(0, 0, 0);
+   box-shadow: 9px 9px  rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
@@ -116,6 +116,8 @@ nav {
 h1{
     text-align: center;
     color: white;
+    font-size: 5vh;
+    text-shadow:  10px 10px 10px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0px 15px rgb(0, 0, 0);
 }
 
 #form-background{
@@ -204,6 +206,70 @@ h1{
 #viewLogButton:hover{
   background: gray;
   box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+
+@media only screen and (max-width: 950px){
+  .view {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+     "body";
+  column-gap: 10px;
+}
+nav {
+flex-direction: row;
+flex-wrap: wrap;
+max-height: 15vh;
+justify-content: space-evenly ;
+padding: 0px;
+}
+#form-background{
+ height: 82vh;
+
+}
+.nav-button {
+  height: 10vw;
+  padding: 1vw;
+  font-size: 2.5vw;
+  width: 20vw;
+  margin: .2vh;
+  margin-bottom: 0vw;
+  margin-top: 0vw;
+    box-shadow: 6px 6px  rgb(0, 0, 0);
+}
+
+#hikeLogId {
+  font-size: 4vw;
+}
+#logDate{
+  font-size: 3vw;
+}
+#logLocation {
+  font-size: 3vw;
+}
+
+#logTable thead  tr {
+  font-size: 6vw;
+}
+#logTable {
+  min-width: 95%;
+  margin-left: 2vw;
+}
+#viewLogButton{
+  font-size: 3vw;
+}
+#logTable  th,
+.data {
+  min-width: 15vw;
+}
+#logTable td{
+   border-right: 2px solid black;
+}
+h1{
+  padding-top: 3vh;
+  margin-bottom: -5vh;
+  font-size: 3vh;
+}
 }
 
 

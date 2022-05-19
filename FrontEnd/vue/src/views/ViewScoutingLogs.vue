@@ -17,7 +17,7 @@
         Create New Scouting Report</router-link>
     </nav>
     <article id="form-background">
-        <h1>This is viewing your Scouting Reports</h1>
+        <h1>My Scouting Reports</h1>
 
         <table id="logTable">
          <thead>
@@ -30,7 +30,7 @@
          </thead>
         <tbody>
       <tr class="ScoutLogs" v-for="scoutLog in $store.state.scoutLogs" v-bind:key="scoutLog.id" >
-        <td class="data" id="scoutLogId"> ID : {{ scoutLog.scoutReportID }}</td>
+        <td class="data" id="scoutLogId"> # : {{ scoutLog.scoutReportID }}</td>
         <td class="data" id="logDate">{{ scoutLog.reportDate }} </td>
          <td class="data" id="logLocation">{{  scoutLog.reportLocation }}</td>
         <td>  <router-link  :to = "{ name: 'view-scout-log', params: {id: scoutLog.scoutReportID}}"> <button id="viewLogButton"> View  Log </button></router-link> </td>
@@ -116,6 +116,8 @@ nav {
 h1{
     text-align: center;
     color: white;
+    font-size: 5vh;
+    text-shadow:  10px 10px 10px rgb(0, 0, 0), 0 0 25px rgb(0, 0, 0), 0 0px 15px rgb(0, 0, 0);
 }
 
 #form-background{
@@ -207,5 +209,69 @@ h1{
   box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
+
+@media only screen and (max-width: 950px){
+  .view {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+     "body";
+  column-gap: 10px;
+}
+nav {
+flex-direction: row;
+flex-wrap: wrap;
+max-height: 15vh;
+justify-content: space-evenly ;
+padding: 0px;
+}
+#form-background{
+ height: 82vh;
+
+}
+.nav-button {
+  height: 10vw;
+  padding: 1vw;
+  font-size: 2.5vw;
+  width: 20vw;
+  margin: .2vh;
+  margin-bottom: 0vw;
+  margin-top: 0vw;
+    box-shadow: 6px 6px  rgb(0, 0, 0);
+}
+#logTable td{
+   border-right: 2px solid black;
+}
+
+#scoutLogId {
+  font-size: 4vw;
+}
+#logDate{
+  font-size: 3vw;
+}
+#logLocation {
+  font-size: 3vw;
+}
+
+#logTable thead  tr {
+  font-size: 6vw;
+}
+#logTable {
+  min-width: 95%;
+  margin-left: 2vw;
+}
+#viewLogButton{
+  font-size: 3vw;
+}
+#logTable  th,
+.data {
+  min-width: 15vw;
+}
+h1{
+  padding-top: 3vh;
+  margin-bottom: -5vh;
+  font-size: 3vh;
+}
+}
 
 </style>

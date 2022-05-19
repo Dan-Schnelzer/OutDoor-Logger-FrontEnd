@@ -54,6 +54,7 @@
   min-height: 13vh;
   max-height: 13vh;
   border-radius: 10px;
+  width: 100%;
 }
 p{
   color: white;
@@ -70,6 +71,7 @@ p{
    -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: black;
       outline: 2px solid rgb(105, 96, 96) ;
+      box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
 
 #homeLink{
@@ -96,6 +98,39 @@ p{
   margin-left: 4vw;
   margin-top: .5vh;
   outline: 2px solid rgb(105, 96, 96) ;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+@media only screen and (max-width: 950px){
+  .header-component {
+    max-height: 10vh;
+    min-height: 10vh;
+  }
+  #homeLink{
+  font-size: 2vh;
+}
+#logout{
+  font-size: 2vh;
+  /* BE SURE TO CHANGE THIS WHEN MAKING SCREEN FOR PHONES... THE SIZE NEEDS TO BE VW AND NOT VH ******** */
+}
+#logo{
+  max-width: 13vw;
+}
+#links{
+  display: flex;
+  flex-direction: column;
+  padding-right: 2vw;
+}
+p{
+  font-size: 5vw;
+  padding-top: 1.5vh;
+    outline: 1px solid rgb(255, 255, 255) ;
+    
+}
+}
+@media only screen and (max-width: 500px){
+  #logo{
+  max-width: 18vw;
+}
 }
 
 </style>

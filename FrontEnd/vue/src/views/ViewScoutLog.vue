@@ -108,7 +108,7 @@ nav {
   box-sizing: border-box;
   border:2px solid rgb(51, 255, 0);
   width: 78%;
-  box-shadow: 12px 12px 12px rgb(0, 0, 0);
+  box-shadow: 9px 9px  rgb(0, 0, 0);
 }
 .nav-button:hover {
   background-color: rgb(2, 33, 54);
@@ -198,5 +198,73 @@ nav {
 }
 
 
+@media only screen and (max-width: 950px){
+  .view {
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "nav"
+    "body"
+    "body"
+    "body"
+     "body";
+  row-gap: 2px;
+}
+nav {
+flex-direction: row;
+flex-wrap: wrap;
+max-height: 15vh;
+justify-content: space-evenly ;
+padding: 0px;
+}
+
+.nav-button {
+  height: 10vw;
+  padding: 1vw;
+  font-size: 2.5vw;
+  width: 20vw;
+  margin: .2vh;
+  margin-bottom: 2px;
+  margin-top: 2px;
+    box-shadow: 6px 6px  rgb(0, 0, 0);
+}
+#form-background{
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "headLine"
+    "image"
+    "image"
+     "right-side"
+    "desc";
+  column-gap: 10px;
+  box-shadow: 10px 10px 10px rgb(0, 0, 0);
+}
+.scoutLogId {
+  font-size: 5vw;
+  margin-left: 2vw;
+}
+.logDate{
+  font-size: 7vw;
+}
+.logLocation {
+  font-size: 6vw;
+}
+#logDescription {
+  font-size: 5vw;
+
+}
+.logData{
+  font-size: 2vh;
+  margin-left: 2vw;
+  margin-right: 2vw;
+}
+.logProps {
+  font-size: 5vw;
+  margin-left: 2vw;
+}
+#rightSide{
+  justify-self: flex-start;
+}
+
+}
 
 </style>
