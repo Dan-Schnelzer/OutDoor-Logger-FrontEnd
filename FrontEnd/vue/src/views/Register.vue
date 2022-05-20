@@ -1,9 +1,9 @@
 <template>
 <div id="container">
   <div id="register" class="text-center">
-    <form class="form-register" @submit.prevent="register">
       <h1 id="CreateH1" class="h3 mb-3 font-weight-normal">Create Account</h1>
-      <div class="alert alert-danger" role="alert" v-if="registrationErrors">
+    <form class="form-register" @submit.prevent="register">
+      <div id="alert" class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
       <div id="UserName">
@@ -40,6 +40,17 @@
         required
       />
       </div>
+      <div id="Email">
+      <label for="Email" class="sr-only">Email</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Email"
+        v-model="user.email"
+        required
+      />
+      </div>
       <div id="ButtonS">
       <button id="CreateAcct" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -65,6 +76,7 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
+        email: '',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
@@ -90,7 +102,7 @@ export default {
             const response = error.response;
             this.registrationErrors = true;
             if (response.status === 400) {
-              this.registrationErrorMsg = 'Bad Request: Validation Errors';
+              this.registrationErrorMsg = 'Bad Request: Validation Errors (UserName and/or Email may already be taken)';
             }
           });
       }
@@ -105,7 +117,7 @@ export default {
 
 <style scoped>
 #container {
-    background-image: url("../assets/Background.jpg");
+    background-image: url("../assets/Background-2.jpg");
   background-repeat: no-repeat;
   /* background-size: 100vw; */
   background-size: cover;
@@ -113,11 +125,22 @@ export default {
   border: solid 1vh  rgb(36, 73, 194);
  
 }
-#CreateH1{
-  padding: 7vh;
-  padding-left: 14vw;
+#alert{
+  font-size: 3vh;
+  color: rgb(134, 134, 134);
+}
+h1{
+  font-size: 7vh;
+  text-align: center;
+  padding-top: 2vh;
    font-family: 'Lobster',  Arial, Helvetica cursive;
      text-shadow: 4px 4px 4px gray, 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
+}
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15vh;
+  padding-left: 10vw;
 }
 
 #username{
@@ -131,29 +154,28 @@ export default {
   margin-left: 6vw;
   padding: 1vh;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 3vh;
   font-family: 'Lobster', cursive;
 }
 #password{
   border-radius: 1vh;
   width: 15vw;
   height: 3vh;
- margin-left: 1vw;
+ margin-left: 1.3vw;
 box-shadow: 6px 6px 6px rgb(51, 50, 50);
-
 }
 #Password{
   margin-left: 6vw;
   padding: 1vh;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 3vh;
   font-family: 'Lobster', cursive;
 }
 #confirmPassword{
   border-radius: 1vh;
   width: 15vw;
   height: 3vh;
- margin-left: 1vw;
+ margin-left: 1.8vw;
 box-shadow: 6px 6px 6px rgb(51, 50, 50);
 margin-top: 1vh;
 }
@@ -161,8 +183,23 @@ margin-top: 1vh;
   margin-left: 6vw;
   padding: 1vh;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 3vh;
   font-family: 'Lobster', cursive;
+}
+#Email{
+    margin-left: 6vw;
+  padding: 1vh;
+  font-weight: bolder;
+  font-size: 3vh;
+  font-family: 'Lobster', cursive;
+}
+#email{
+  border-radius: 1vh;
+  width: 15vw;
+  height: 3vh;
+ margin-left: 3.6vw;
+box-shadow: 6px 6px 6px rgb(51, 50, 50);
+margin-top: 1vh;
 }
 
 #ButtonS{
@@ -205,29 +242,81 @@ margin-top: 1vh;
   text-decoration: none;
 }
 
-@media only screen and (max-width: 800px) {
+
+@media only screen and (max-width: 1300px) {
   #container {
-  background-image: url("../assets/BackgroundSmall.jpg");
-  background-repeat: no-repeat;
+  background-image: url("../assets/BackgroundSmall2.jpg");
+   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 100vh;
-  border: solid 1vh  rgb(36, 73, 194);
+  border: solid .5vh  rgb(36, 73, 194);
   }
-  #username{
-  width: 20vw;
-  }
-  #password{
-    width: 20vw;
-  }
-  #confirmPassword{
-  width: 20vw;
-  }
-  #CreateAcct{
-  width: 20vw;
-  }
-  #HaveAcct{
-  width: 20vw;
-  }
+  #alert{
+  font-size: 2vh;
+  /* padding-bottom: 10vh;
+  margin-top: -14vh; */
+   margin-left: .5vw; 
+  
+}
+  form {
+  padding-top: 25vh;
+  align-items: center;
+}
+
+ #username{
+  width: 29vw;
+  margin-left: 2vw;
+ }
+ #password{
+   width: 29vw;
+   margin-left: 3vw;
+ }
+ #Password{
+   color: rgb(255, 255, 255);
+   font-size: 5vw;
+     text-shadow: 4px 4px 4px rgb(0, 0, 0), 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
+ }
+ #UserName{
+   color: white;
+   font-size: 5vw;
+     text-shadow: 4px 4px 4px rgb(0, 0, 0), 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
+ }
+ #confirmPassword{
+  width: 29vw;
+  margin-left: 1.5vw;
+}
+#ConfirmPass{
+  color: white;
+   font-size: 5vw;
+   text-shadow: 4px 4px 4px rgb(0, 0, 0), 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
+}
+#Email{
+   color: white;
+   font-size: 5vw;
+    text-shadow: 4px 4px 4px rgb(0, 0, 0), 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
+    margin-left: 10vw;
+}
+#email{
+    width: 29vw;
+    margin-left: 5vw;
+}
+#CreateAcct{
+  width: 27vw;
+  height: 5.5vh;
+} 
+
+ #HaveAcct{
+  width: 27vw;
+  height: 5.5vh;
+}
+h1{
+  font-size: 9vw;
+  margin-top: 3vh;
+}
+
+#ButtonS{
+  margin-left: 5vw;
+  margin-top: -1vh;
+}
 }
 
 </style>

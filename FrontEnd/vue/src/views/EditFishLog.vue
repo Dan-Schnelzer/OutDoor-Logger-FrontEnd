@@ -17,7 +17,7 @@
     <article id="form-background">
        
         <div id="form-container">
-            <h1>Update This Fishing Log</h1>
+            <h1>Update this Fishing Log</h1>
           <form v-if="this.$store.state.user.id == this.fishLog.userId">
             <label class="labels" for="date">Choose the Date :</label>
             <input

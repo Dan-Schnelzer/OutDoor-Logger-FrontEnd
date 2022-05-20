@@ -2,17 +2,17 @@
   <body>
     <div id= "container">
     <div id="login" class="text-center">
-      <form class="form-signin" @submit.prevent="login">
         <div id="Out-Door">
           <h1>Welcome to the</h1>
         <h1 class="h3 ">Out-Door Logger</h1>
         </div>
-        <div id="LoggingIn">
-        <div class="alert alert-danger" role="alert" v-if="invalidCredentials">
+      <form class="form-container" @submit.prevent="login">
+        <!-- <div id="LoggingIn"> -->
+        <div class="alert" role="alert" v-if="invalidCredentials">
           Invalid username and password!
         </div>
         <div
-          class="alert alert-success"
+          class="alert"
           role="alert"
           v-if="this.$route.query.registration"
         >
@@ -45,7 +45,7 @@
         <button id="SignIn" type="submit">Sign in</button>
        <button id="needAccount"> <router-link id="NeedAcct" :to="{ name: 'register' }">Need an account?</router-link> </button>
        </div>
-        </div>
+        <!-- </div> -->
       </form>
     </div>
     </div>
@@ -92,20 +92,18 @@ export default {
 <style scoped>
 
 #container {
-  background-image: url("../assets/Background.jpg");
+  background-image: url("../assets/Background-2.jpg");
   background-repeat: no-repeat;
-  /* background-size: 100vw; */
   background-size: cover;
   min-height: 100vh;
-  border: solid 1vh  rgb(36, 73, 194);
- 
+  border: solid .5vh  rgb(36, 73, 194);
 }
-
+.alert{
+  font-size: 3vh;
+}
 #Out-Door{
-  /* display: flex; */
   text-align: center;
   padding: 3vh;
-  /* font-family: Arial, Helvetica, sans-serif; */
   font-size: 2.5vh;
   color: rgb(0, 0, 0);
   text-shadow: 4px 4px 4px gray, 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
@@ -115,12 +113,19 @@ export default {
   font-size: 9vh;
   margin-top: -4vh;
 }
-#LoggingIn{
-  /* display: flex; */
- 
-  justify-content: space-around;
-  /* flex-basis: 100%; */
+
+form {
+  display: flex;
+  flex-direction: column;
+  padding-top: 15vh;
+  padding-left: 10vw;
 }
+/* #LoggingIn{
+  display: flex; 
+ 
+  justify-self: flex-end; 
+  flex-basis: 100%;
+ } */
 
 #username{
   border-radius: 1vh;
@@ -133,21 +138,21 @@ export default {
   margin-left: 6vw;
   padding: 1vh;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 3vh;
   font-family: 'Lobster', cursive;
 }
 #password{
   border-radius: 1vh;
   width: 15vw;
   height: 3vh;
- margin-left: 1vw;
+ margin-left: 1.3vw;
 box-shadow: 6px 6px 6px rgb(51, 50, 50);
 }
 #Password{
   margin-left: 6vw;
   padding: 1vh;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 3vh;
   font-family: 'Lobster', cursive;
 }
 #ButtonS{
@@ -155,7 +160,8 @@ box-shadow: 6px 6px 6px rgb(51, 50, 50);
   flex-direction: column;
   width: 15vw;
   padding: 1vh;
-  margin-left: 14vw;
+  padding-top: 5vh;
+  margin-left: 13vw;
 }
 #SignIn{
   height: 4vh;
@@ -188,35 +194,62 @@ box-shadow: 6px 6px 6px rgb(51, 50, 50);
 #NeedAcct{
   color: white;
   text-decoration: none;
-}
+}  
 
 
-@media only screen and (max-width: 950px) {
+@media only screen and (max-width: 1300px) {
   #container {
   background-image: url("../assets/BackgroundSmall2.jpg");
-  /* background-repeat: no-repeat; */
+   background-repeat: no-repeat;
   background-size: cover;
   
-  border: solid 1vh  rgb(36, 73, 194);
+  border: solid .5vh  rgb(36, 73, 194);
   }
+  form {
+  padding-top: 15vh;
+  align-items: center;
+}
+.alert{
+  font-size: 2vh;
+  color: rgb(134, 134, 134);
+}
  #username{
-  width: 20vw;
+  width: 29vw;
  }
  #password{
-   width: 20vw;
+   width: 29vw;
+ }
+ #Password{
+   color: rgb(255, 255, 255);
+   font-size: 5vw;
+    text-shadow: 7px 9px 10px  black;
+   
+ }
+ #UserName{
+   color: white;
+   font-size: 5vw;
+    text-shadow: 7px 9px 10px  black;
  }
 #SignIn{
-  width: 20vw;
-}
+  width: 27vw;
+  height: 5.5vh;
+} 
 
-#needAccount{
-  width: 20vw;
+ #needAccount{
+  width: 27vw;
+  height: 5.5vh;
+}
+h1{
+  font-size: 9vw;
+  margin-top: 0vh;
 }
 .h3{
-  font-size: 9vw;
- 
+  font-size: 11vw;
 }
-
+#ButtonS{
+  margin-left: 5vw;
+  margin-top: -3vh;
+}
 }
 
 </style>

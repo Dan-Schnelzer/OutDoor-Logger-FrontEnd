@@ -68,8 +68,7 @@ p{
    min-width: 30vw;
    text-align: center;
    padding: 1vh 2vh  2vh 1vh;
-   -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: black;
+        text-shadow: 4px 4px 4px rgb(0, 0, 0), 0 0 25px rgb(54, 54, 167), 0 0 5px rgb(71, 71, 100);
       outline: 2px solid rgb(105, 96, 96) ;
       box-shadow: 10px 10px 10px rgb(0, 0, 0);
 }
@@ -106,10 +105,11 @@ p{
     min-height: 10vh;
   }
   #homeLink{
-  font-size: 2vh;
+  font-size: 1.5vh;
+  margin-bottom: .5vh;
 }
 #logout{
-  font-size: 2vh;
+  font-size: 1.5vh;
   /* BE SURE TO CHANGE THIS WHEN MAKING SCREEN FOR PHONES... THE SIZE NEEDS TO BE VW AND NOT VH ******** */
 }
 #logo{

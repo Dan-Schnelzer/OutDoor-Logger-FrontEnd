@@ -16,7 +16,7 @@
     </nav>
     <article id="form-background">
           <div id="form-container">
-        <h1>Update This Hunting Log</h1>
+        <h1>Update this Hunting Log</h1>
           <form v-if="this.$store.state.user.id == this.huntLog.userId">
             <label class="labels" for="date">Choose the Date :</label>
             <input

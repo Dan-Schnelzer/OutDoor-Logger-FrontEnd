@@ -169,6 +169,7 @@ h1{
     text-align: center;
     color: white;
     text-decoration: underline;
+     font-size: 4vh;
 }
 
 #form-background{

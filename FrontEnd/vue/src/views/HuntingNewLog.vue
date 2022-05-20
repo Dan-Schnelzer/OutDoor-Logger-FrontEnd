@@ -16,7 +16,7 @@
     </nav>
     <article id="form-background">
           <div id="form-container">
-        <h1>Create a New Hunting Log</h1>
+        <h1>Create a new Hunting Log</h1>
           <form>
             <label class="labels" for="date">Choose the Date :</label>
             <input

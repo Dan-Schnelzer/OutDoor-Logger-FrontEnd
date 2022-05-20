@@ -17,7 +17,7 @@
     </div>
 
     <div id="Scouting">
-      <h1 id="scout">Scouting Report</h1>
+      <h1 id="scout">Scouting Reports</h1>
       <router-link class="logButtons" v-bind:to ="{name: 'scouting-report-new-log'}">
         Create new Log</router-link>
         <router-link class="logButtons" v-bind:to="{name: 'view-scouting-logs'}">
